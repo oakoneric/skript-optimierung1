@@ -1,0 +1,52 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{\numberline {1}Einführung}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Aufgabenstellung und Grundbegriffe}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Beispiele zur kontinuierlichen Optimierung}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Transportoptimierung}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Kürzeste euklidische Entfernung}{5}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Beispiele zur diskreten Optimierung}{5}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Das Rucksackproblem}{5}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Das Bin-Packing-Problem}{6}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Standortplanung}{7}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Quadratisches Zuordnungsproblem}{8}{subsection.1.3.4}%
+\contentsline {chapter}{\numberline {2}Grundlagen}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Existenz von Lösungen}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Optimalitätsbedingungen}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Das Lemma von \textsc {Farkas}}{15}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Lineare Optimierung}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Basislösungen und Ecken}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Das primale Simplex-Verfahren}{19}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Phase 2 des Simplex-Verfahrens}{19}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Phase 1 (Hilfsfunktionsmethode)}{25}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Der Simplexalgorithmus}{26}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Das duale Simplexverfahren}{27}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Dualität}{28}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Transportoptimierung}{31}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Problemstellung}{31}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Erzeugung eines ersten Transportplans}{34}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Der Transportalgorithmus}{35}{subsection.3.5.3}%
+\contentsline {chapter}{\numberline {4}Diskrete Optimierung}{38}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Spaltengenerierung}{38}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Die Methode Branch \& Bound}{39}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Grundlagen}{39}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Allgemeiner B\&B-Algorithmus}{40}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Beispiele für B\&B-Verfahren}{40}{subsection.4.2.3}%
+\contentsline {subsubsection}{Das 0/1-Rucksackproblem}{40}{subsubsection*.28}%
+\contentsline {subsubsection}{Ganzzahlige lineare Optimierung nach Land/Doig/Dahin}{42}{subsubsection*.39}%
+\contentsline {subsubsection}{Das Rundreiseproblem (Traveling Salesman Problem, TSP)}{44}{subsubsection*.47}%
+\contentsline {section}{\numberline {4.3}Dynamische Optimierung}{47}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Das Rucksackproblem in der dynamischen Optimierung}{47}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}2D-Guillotine-Zuschnitt}{48}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Schnittebenenverfahren}{49}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Optimierung auf Graphen}{54}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Grundbegriffe der Graphentheorie}{54}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Das Minimalgerüst-Problem / Minimum Spanning Tree Problem}{54}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Algotihmus von \textsc {Kruskal}}{54}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Algorithmus von \textsc {Prim} \& \textsc {Dijkstra}}{55}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Optimale Wege}{55}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Das Kürzeste-Wege-Problem}{55}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Das Längste-Wege-Problem}{57}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Netzplantechnik}{58}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Maximale Flüsse in Graphen}{59}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Problemstellung}{59}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Algorithmus von \textsc {Edmonds} \& \textsc {Karp}}{61}{subsection.5.4.2}%

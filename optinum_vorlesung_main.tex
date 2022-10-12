@@ -1,0 +1,294 @@
+% This work is licensed under the Creative Commons
+% Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy
+% of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/ or
+% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+% (c) Eric Kunze, 2019
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template for lecture notes and exercises at TU Dresden.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[ngerman, a4paper, 11pt]{report}
+
+\usepackage[ngerman]{babel}
+
+\usepackage{./layoutMathTUD}
+\usepackage[smallequationskip]{./mathworkMathTUD}
+
+\usepackage{./mathoperatorsMathTUD}
+\usepackage{./optinum_theorem}
+
+\usepackage{./titlepageMathTUD}
+\usepackage{./graphicsMathTUD}
+
+\input{./optinum_headings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          HIGHLIGHTING                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\begriff}[1]{\textbf{#1}}
+\newcommand{\person}[1]{\textsc{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             LICENSE                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+type={CC},
+modifier={by-nc-sa},
+version={4.0},
+]{doclicense}
+\usepackage{fontawesome5}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             COUNTER                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{chngcntr}
+
+% automatic reset of section after chapter ended 
+\pretocmd{\chapter}{\setcounter{section}{0}}{}{}
+
+% automatic reset of equation counter in each section
+\pretocmd{\chapter}{\setcounter{equation}{0}}{}{}
+
+%\counterwithin{theorem}{chapter}
+%\counterwithin{definition}{chapter}
+%\counterwithin{satz}{chapter}
+%\counterwithin{lemma}{chapter}
+%\counterwithin{proposition}{chapter}
+%\counterwithin{folgerung}{chapter}
+%\counterwithin{korollar}{chapter}
+%\counterwithin{beispiel}{chapter}
+%\counterwithin{erinnerung}{chapter}
+%\counterwithin{wiederholung}{chapter}
+%\counterwithin{bemerkung}{chapter}
+%\counterwithin{anmerkung}{chapter}
+%\counterwithin{algorithmus}{chapter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          ENUMERATIONS                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumerate}
+\usepackage[inline]{enumitem} 		%customize label
+
+\renewcommand{\labelitemi}{\raisebox{2pt}{\scalebox{.5}{$\blacksquare$}}}
+\renewcommand{\labelitemii}{$\vartriangleright$}
+\renewcommand{\labelitemiii}{--}
+% Variantionen des Dreiecks als Aufzählungszeichen $\blacktriangleright$ / $\vartriangleright$ / $\triangleright$
+
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\labelenumii}{\alph{enumii}.}
+\renewcommand{\labelenumiii}{\roman{enumiii}.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         HEADER & FOOTER                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\rightinfo}{Vorlesung ''Optimierung`` bei Dr. Martinovic im Wintersemester 2019/20}
+
+\input{./optinum_pagestyle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        TABLE OF CONTENTS                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tocloft}
+
+\renewcommand{\cfttoctitlefont}{\titlefont\Huge\bfseries}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            LISTINGS                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           REFERENCES                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[unicode,bookmarks=true]{hyperref}
+\hypersetup{
+	pdfborder={0 0 0},			% no boxed around links
+	% pdfborderstyle={/S/U/W 1},	% underlining insteas of boxes
+	% linkbordercolor=cdblue,
+	% urlbordercolor=cdblue
+	colorlinks,
+	citecolor=cdgreen,
+	filecolor=cdpurple,
+	linkcolor=cdblue,
+	urlcolor=cddarkblue,
+}
+
+\usepackage[nameinlink]{cleveref}
+\crefname{theorem}{Theorem}{Theoreme}
+\crefname{satz}{Satz}{Sätze}
+\crefname{lemma}{Lemma}{Lemmata}
+\crefname{aussage}{Aussage}{Aussagen}
+\crefname{proposition}{Proposition}{Propositionen}
+\crefname{folgerung}{Folgerung}{Folgerungen}
+\crefname{korollar}{Korollar}{Korollare}
+\crefname{definition}{Definition}{Definitionen}
+\crefname{bemerkung}{Bemerkung}{Bemerkungen}
+\crefname{beispiel}{Beispiel}{Beispiele}
+\crefname{erinnerung}{Erinnerung}{Erinnerungen}
+\crefname{algorithmus}{Algorithmus}{Algorithmen}
+
+\usepackage{bookmark}		% pdf-bookmarks
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------
+% additional packages
+%---------------------------------------
+
+\usepackage{csquotes}
+\usepackage{stmaryrd}
+
+
+%---------------------------------------
+% general settings
+%---------------------------------------
+
+\name{Eric Kunze}
+\matnr{Nummer}
+\email{\href{mailto:eric.kunze@mailbox.tu-dresden.de}{\ttfamily eric.kunze@mailbox.tu-dresden.de}}
+
+\modul{Optimierung und Numerik}
+\period{Wintersemester 2019/20}
+
+%\renewcommand{\tutor}{Dr. Legrand}
+%\renewcommand{\group}{Tag x. DS, (un)gerade Woche}
+
+\lecturer{Dr. John Martinovic}
+\faculty{Mathematik}
+\institute{Numerik}
+\professorship{Numerik der Optimalen Steuerung}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{pdfpages}
+
+\undef\folge
+\NewDocumentCommand{\folge}{m m}{\left\{ #1 \right\}_{#2}}
+\renewcommand{\complement}{\mathsf{C}}
+
+\newcommand{\widesim}[1][2.5]{
+	\mathrel{\scalebox{#1}[1]{\ensuremath{\sim}}}
+}
+
+\newenvironment{indentpar}{\vspace{\parskip} \par \setlength{\parindent}{1cm}}{\vspace{\parskip} \par}
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\makeatletter
+\newcommand{\leqnomode}{\tagsleft@true\let\veqno\@@leqno}
+\newcommand{\reqnomode}{\tagsleft@false\let\veqno\@@eqno}
+\makeatother
+
+\DeclareMathOperator{\TP}{TP}
+\DeclareMathOperator{\AZ}{AZ}
+\DeclareMathOperator{\FAZ}{FAZ}
+\DeclareMathOperator{\SAZ}{SAZ}
+\DeclareMathOperator{\PZ}{PZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+	\begin{titlepage}
+		\pagecolor{cddarkblue!90}%
+		\color{white}%
+		
+		\raggedright%
+		\fosfamily%
+		\setlength{\parindent}{0pt}%
+		
+		
+		\hspace{-18.6mm}
+		\includegraphics[scale=0.6]{TUD-white.pdf}%
+		%		\includegraphics[scale=0.6]{TUD-blue.pdf} 
+		\vspace{3mm} 
+		\begin{tabular}{m{\textwidth}}
+			\hline
+			\hspace{-4pt}\small{\textbf{Fakultät Mathematik} Institut für Numerik, Professur für Numerik der Optimalen Steuerung} \\
+			\hline
+		\end{tabular} \\
+		
+		\vspace{5cm}
+		{\Huge\bfseries \MakeUppercase Optimierung und Numerik \par}
+		%
+		% Untertitel
+		\vspace{0.5cm}%
+		{\Large \itshape Teil 1 --- Optimierung} \\%
+		
+		%
+		\vspace{1.5cm}
+		\textbf{{\Large Dr. John Martinovic}} \par
+		\vspace{0.5cm}
+		{\large Wintersemester 2019/20}
+		
+		
+		
+		\vfill
+		\begin{minipage}{\dimexpr0.75\linewidth-\fboxrule-\fboxsep}
+			\begin{tabular}{lll}
+				Mitschrift  & : & Eric Kunze \\
+				E-Mail      & : & \href{mailto:eric.kunze@tu-dresden.de}{eric.kunze@tu-dresden.de} \\
+			\end{tabular}
+		\end{minipage}
+		\begin{minipage}{\dimexpr0.25\linewidth-\fboxrule-\fboxsep}
+			\flushright
+			\href{https://github.com/oakoneric/skript-optimierung1}{%
+				\includegraphics[width=8em]{img/GitHub-Logo-White.png}%
+			}
+		\end{minipage}
+	\end{titlepage}
+	\nopagecolor
+	
+	
+	\tableofcontents
+	\vfill
+	{\footnotesize \doclicenseThis }
+	
+	\chapter{Einführung}
+	\label{chapter_1_einfuehrung}
+	\input{optinum_1_1_aufgabenstellungGrundbegriffe}
+	\input{optinum_1_2_beispieleKontinuierlicheOptimierung}
+	\input{optinum_1_3_beispieleDiskreteOptimierung}
+	
+	\chapter{Grundlagen}
+	\label{chapter_2_grundlagen}
+	\input{optinum_2_1_existenzLoesungen}
+	\input{optinum_2_2_optimalitaetsbedingungen}
+	\input{optinum_2_3_lemmaVonFarkas}
+	
+	\chapter{Lineare Optimierung}
+	\label{chapter_3_lineareOptimierung}
+	\input{optinum_3_0_intro}
+	\input{optinum_3_1_basisloesungenEcken}
+	\input{optinum_3_2_primalesSimplexverfahren}
+	\input{optinum_3_3_dualesSimplexverfahren}
+	\input{optinum_3_4_dualitaet}
+	\input{optinum_3_5_transportoptimierung}
+	
+	\chapter{Diskrete Optimierung}
+	\label{chapter_4_diskreteOptimierung}
+	\input{optinum_4_0_intro}
+	\input{optinum_4_1_spaltengenerierung}
+	\input{optinum_4_2_methodeBranchBound}
+	\input{optinum_4_3_dynamischeOptimierung}
+	\input{optinum_4_4_schnittebenenverfahren}
+	%
+	\chapter{Optimierung auf Graphen}
+	\label{chapter_5_optimierungGraphen}
+	\input{optinum_5_0_intro}
+	\input{optinum_5_1_definitionen}
+	\input{optinum_5_2_minimumSpanningTree}
+	\input{optinum_5_3_optimaleWege}
+	\input{optinum_5_4_maximaleFluesse}
+
+\end{document}
