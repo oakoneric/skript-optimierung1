@@ -10,9 +10,58 @@
 
 \ProvidesPackage{mathoperatorsMathTUD}
 
-\RequirePackage{amsmath,amssymb}
+
+\RequirePackage{zref-base}
+\RequirePackage{etoolbox}
+\RequirePackage{calc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% math related packages
+% basic ams-math and enhancments
+\RequirePackage{amsmath,amssymb,amsfonts,mathtools}
+\RequirePackage{blkarray}
 \RequirePackage{scalerel,stackengine}
 \RequirePackage{aligned-overset}
+
+\RequirePackage{latexsym}
+\RequirePackage{marvosym}   % lightning (contradiction)
+\RequirePackage{stmaryrd}   % Lightning symbol
+\RequirePackage{bbm}        % unitary matrix
+\RequirePackage{wasysym}    % add some symbols
+
+\RequirePackage{systeme}    % easy typesetting systems of equations
+\RequirePackage{witharrows} % arrows from one equation to another
+
+% further support for different equation setting
+\RequirePackage{cancel}
+\RequirePackage{xfrac}      % sfrac -> fractions e.g. 3/4
+\RequirePackage{units}      % units and fractions
+\RequirePackage{diagbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% new symbols
+
+% >> cupdot & bigcupdot for disjoint union of sets
+% reference: https://tex.stackexchange.com/questions/3964/mathematical-symbol-for-disjoint-set-union
+\def\moverlay{\mathpalette\mov@rlay}
+\def\mov@rlay#1#2{\leavevmode\vtop{%
+   \baselineskip\z@skip \lineskiplimit-\maxdimen
+   \ialign{\hfil$\m@th#1##$\hfil\cr#2\crcr}}}
+\newcommand{\charfusion}[3][\mathord]{
+    #1{\ifx#1\mathop\vphantom{#2}\fi
+        \mathpalette\mov@rlay{#2\cr#3}
+      }
+    \ifx#1\mathop\expandafter\displaylimits\fi}
+\newcommand{\smallbullet}{\scriptstyle\bullet}
+\newcommand{\cupdot}{\charfusion[\mathbin]{\cup}{\cdot}}
+\newcommand{\bigcupdot}{\charfusion[\mathop]{\bigcup}{\smallbullet}}
+
+% >> use \cdot as multiplication symbol instead of *
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"01}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                NEW MATH COMMANDS AND OPERATORS                      %
@@ -24,7 +73,10 @@
 % >> special characters
 \newcommand{\quer}[1]{\overline{#1}}
 \newcommand{\schlange}[1]{\widetilde{#1}}
+\newcommand{\widesim}[1][2.5]{ \mathrel{\scalebox{#1}[1]{\ensuremath{\sim}}} }
 \newcommand{\dach}[1]{\widehat{#1}}
+\renewcommand*{\dot}[1]{\accentset{\mbox{\large\bfseries .}}{#1}}
+\renewcommand*{\ddot}[1]{\accentset{\mbox{\large\bfseries .\hspace{-0.25ex}.}}{#1}}
 
 \renewcommand{\epsilon}{\varepsilon}
 %\let\oldphi\phi
@@ -92,8 +144,14 @@
 \newcommand{\follows}{\ensuremath{\enskip \Rightarrow \enskip}}                 % =>
 \newcommand{\equivalent}{\ensuremath{\enskip \Leftrightarrow \enskip}}          % <=>
 \newcommand{\defequiv}{\ensuremath{\enskip \mathrel{:\Leftrightarrow}} \enskip} % :<=>
-\newcommand{\defeq}{\ensuremath{\mathrel{:=}}}                                  % :=
-\newcommand{\defqe}{\ensuremath{\mathrel{=:}}}                                  % =:
+\newcommand*{\defeq}{\mathrel{\rlap{%
+                     \raisebox{0.3ex}{$\m@th\cdot$}}%
+                     \raisebox{-0.3ex}{$\m@th\cdot$}}%
+                     =}
+%\renewcommand{\defeq}{\coloneqq}
+\newcommand*{\defqe}{= \mathrel{\rlap{%
+                     \raisebox{0.3ex}{$\m@th\cdot$}}%
+                     \raisebox{-0.3ex}{$\m@th\cdot$}} }                         % =:
 
 % >> linear algebra - vector spaces
 \newcommand{\basisB}{\mathcal{B}}                   % cal symbol for basis b
@@ -170,8 +228,7 @@
 % >> numerical mathematics
 
 % >> stochastic
-\undef\P
-\newcommand{\P}{\mathbb{P}}
+\renewcommand{\P}{\mathbb{P}}
 \newcommand{\ereignisF}{\mathcal{F}}
 
 \newcommand{\upmodels}{\perp\!\!\!\perp}
@@ -187,6 +244,9 @@
 \newcommand{\Normal}{\mathcal{N}}
 
 \newcommand{\disteq}{\mathrel{\overset{\mathrm{d}}{=}}}
+\newcommand{\distto}{\mathrel{\overset{\mathrm{d}}{\longrightarrow}}}
+\newcommand{\probto}{\mathrel{\overset{\mathbb{P}}{\longrightarrow}}}
+\newcommand{\weakto}{\mathrel{\overset{\text{w}}{\longrightarrow}}}
 
 % >> functional analysis
 \newcommand{\schwachstern}{ schwach${}^\ast$ }
@@ -200,6 +260,7 @@
 \DeclareMathOperator{\Aff}{Aff}     % Affine
 \DeclareMathOperator{\Aut}{Aut}     % Automorphism
 \DeclareMathOperator{\Abb}{Abb}     % Abbildung
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 %%%%%% B
 \DeclareMathOperator{\Bernoulli}{Bernoulli} % bernoulli distribution
